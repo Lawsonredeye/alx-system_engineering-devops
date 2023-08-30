@@ -1,7 +1,3 @@
 #!/bin/bash
-ls -a
-cd ..
-ls -a
-cd ..
 cd /boot
 ls -la
