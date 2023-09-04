@@ -1,0 +1,4 @@
+#!/bin/bash
+git add .
+git commit -m "created and modified this file"
+git push
