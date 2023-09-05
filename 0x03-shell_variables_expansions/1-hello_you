@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Hello, $(whoami)"
+id="hello MyUser" | echo $id
