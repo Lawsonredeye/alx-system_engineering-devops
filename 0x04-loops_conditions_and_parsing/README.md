@@ -25,4 +25,19 @@ do
     COMMAND
 done
 
+case EXPRESSION in
+  Pattern_Case_1)
+   STATEMENTS
+   ;;
+ Pattern_Case_1)
+   STATEMENTS
+   ;;
+ Pattern_Case_N)
+   STATEMENTS
+   ;;
+ *)
+   STATEMENTS
+   ;;
+esac
+
 As for conditions, `if` and `else` are the keywords using for checking if a certain command is either *True or False* 
