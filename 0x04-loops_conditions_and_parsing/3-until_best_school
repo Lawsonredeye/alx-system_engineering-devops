@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# displays best school using until
+i=0
+until [ "$i" -eq 10 ]
+do
+    echo "Best School"
+    ((i++))
+done
+exit 0
