@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # script that displays content of current directory
-for i in $(ls)
+# ls > kd
+for i in *
 do
-        echo $i | cut -d'-' -f2-
+        echo "$i" | cut -d'-' -f2-
 done
