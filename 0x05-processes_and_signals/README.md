@@ -58,6 +58,15 @@ The *signal 9 is called SIGKILL* and its wideley used if the *SIGTERM (signal 15
 
 There are more than 60 Signal calls but the most widely used kill signal by users is 9 and its full list is found in the /usr/include/linux/signal.h and viewed by doing `kill -l`.
 
+### Other ways of terminating a program
+
+To terminate a process you can use the `pkill -f NAME_OF_FILE` where -f is the the flag to specify the file name.
+To find all processes in another terminal use the `ps -ax` or the `pgrep -f NAME_OF_FILE` to find the specific file process that you want to terminate while in another terminal.
+
+You can also use the trap keyword in bash to prevent a script from terminating while being executed. The syntax is as follows;
+`trap "COMMAND/ACTION" SIGNAL`
+where *signal* is the type of SIG you want to prevent/block eg *SIGTERM*
+
 ## How to check failing processes
 
 Things to note that a program is failing are:
@@ -66,9 +75,9 @@ Things to note that a program is failing are:
 2. Application can't shutdown/ terminate normally.
 
 The best thing to do in this situation when an application or a process fails is to;
-1. run ps -aux | less to know all the available process and information on them
-2. run pstree | less as to know the parent process and childprocesses of the respected program you wish to terminate.
-3. run the kill -9 on the desired process to terminate the frozen program
+1. run `ps -aux | less` to know all the available process and information on them
+2. run `pstree | less` as to know the parent process and childprocesses of the respected program you wish to terminate.
+3. run the `kill -9` on the desired process to terminate the frozen program
 
 *Note:*
-some times even the strongest signal wouldnt be able to terminate a program and its best to just reboot the system when it gest to that point.
+some times even the strongest signal wouldnt be able to terminate a program and its best to just reboot the system when it gets to that point.
