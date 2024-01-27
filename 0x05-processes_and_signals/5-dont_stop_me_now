@@ -2,5 +2,5 @@
 #  Bash script that stops 4-to_infinity_and_beyond process
 # get $4 PID => use kill to terminate $4
 var=$(ps ax | grep 4-to_infinity_and_beyond | awk '{print $1}')
-kill -9 $var 2> error.txt
+kill -9 "$var" 2> error.txt
 rm error.txt
