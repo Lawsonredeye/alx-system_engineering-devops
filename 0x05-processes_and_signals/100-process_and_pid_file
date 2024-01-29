@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Process and PID file
-echo $$ > sudo tee "/var/run/myscript.pid"
+sudo touch /var/run/myscript.pid
+echo $$ > /var/run/myscript.pid
 
 while true
 do
