@@ -17,6 +17,17 @@ Regexp also involves some metacharacter for pattern matching and for numbers `\d
 
 The backward slash distinguish it from the d character and its used to indicate that this is a `metacharacter`.
 
+## Definitions
+1. *Literal Character:* A literal character is the most basic regular expression you can use. It simply matches the actual character you write. So if you are trying to represent an “r,” you would write r. 
+Metacharacter: Metacharacters signify to the regex engine that the following character has a special meaning. You typically include a \  in front of the metacharacter and they can do things like signify the beginning of a line, end of a line, or to match any single character. 
+
+2. *Character Class:* A character class (or character set) tells the engine to look for one of a list of characters. It is signified by [ and ] with the characters you are looking for in the middle of the brackets. 
+Capture Group: A capture group is signified by opening and closing, round parenthesis. They allow you to group regexes together to apply other regex features like quantifiers (see below) to the group.
+
+3. *Metacharacter:* Metacharacters signify to the regex engine that the following character has a special meaning. You typically include a \  in front of the metacharacter and they can do things like signify the beginning of a line, end of a line, or to match any single character.
+
+4. *Capture Group:* A capture group is signified by opening and closing, round parenthesis. They allow you to group regexes together to apply other regex features like quantifiers (see below) to the group. 
+
 ## Regular Expression Metacharacters
 
 Metacharacters are reserved symbols used to assist in matching of characters.
