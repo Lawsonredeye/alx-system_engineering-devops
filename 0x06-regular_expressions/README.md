@@ -59,24 +59,24 @@ Skip	pan
 The code above would match charatcers that starts with either *f, m or c* and ends with *an*.
 
 ### More characters and meaning
-`*` => matches all characters
-`\*` => match only asterisk characters
-`{} `=> specifies the range or amount of occurence
-`.` => matches all character excluding space
-`\.` => matches only .[dot] character
-`[abc]` => specifies either a, b or c characters
-`[123]` => specifies either 1, 2 or 3 numbers
-`[0-9]` => searches from 0-9
-`[a-z]` => searches from a-z (case sensitive)
-`+ `=> 1 or more
-`^  or \A` => match start of line
-`$ or \Z` => match end of line
-`\b` => matches character at the start of a word eg \b*bee*\b == *bee*s
-`\B` => matches character at the middle of non special characters eg \b*ee*\b == b*ee*s
-`\w` => match word characters
-`\W` => match non word characters
-`\s` => matches white spaces
-`\S` => matches non white-spaces
+1. `*` => matches all characters
+2. `\*` => match only asterisk characters
+3. `{} `=> specifies the range or amount of occurence
+4. `.` => matches all character excluding space
+5. `\.` => matches only .[dot] character
+6. `[abc]` => specifies either a, b or c characters
+7. `[123]` => specifies either 1, 2 or 3 numbers
+8. `[0-9]` => searches from 0-9
+9. `[a-z]` => searches from a-z (case sensitive)
+10. `+ `=> 1 or more
+11. `^  or \A` => match start of line
+12. `$ or \Z` => match end of line
+13. `\b` => matches character at the start of a word eg \b*bee*\b == *bee*s
+14. `\B` => matches character at the middle of non special characters eg \b*ee*\b == b*ee*s
+15. `\w` => match word characters
+16. `\W` => match non word characters
+17. `\s` => matches white spaces
+18. `\S` => matches non white-spaces
 
 *Please see all on the cheatsheet for regexes, link is below*
 
