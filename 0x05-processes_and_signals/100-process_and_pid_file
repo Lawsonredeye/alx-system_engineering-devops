@@ -3,10 +3,16 @@
 sudo touch /var/run/myscript.pid
 echo $$ > /var/run/myscript.pid
 
+function the_term(){
+    echo "I hate the kill command"
+    sudo rm -rf /var/run/myscript.pid
+    exit
+}
 while true
 do
     echo "To infinity and beyond"
     sleep 2
-    trap "echo \"I hate the kill command\"; sudo rm -rf /var/run/myscript.pid; exit" SIGTERM SIGQUIT
+    # trap "echo \"I hate the kill command\"; sudo rm -rf /var/run/myscript.pid; exit" SIGTERM SIGQUIT
+    trap the_term SIGTERM SIGQUIT
     trap 'echo "Y U no love me?!"' SIGINT
 done
