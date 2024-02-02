@@ -4,4 +4,4 @@
 echo "127.0.0.2	localhost" > /etc/newhosts
 echo "8.8.8.8	facebook.com" >> /etc/newhosts
 
-cat /etc/newhost > /etc/hosts
+cp -f /etc/newhosts /etc/hosts
