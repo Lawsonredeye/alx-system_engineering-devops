@@ -8,4 +8,7 @@ When working as a DevOps engineer, working with servers might/would/could be you
 With SSH, you can connect to a remote server and access its information as well as its files and databse (if any).
 SSH is a powerful tool to work with and theres a lot of things you can do.
 
-## SSH key-gen, Passphrase, 
+## How to connect to a server
+1. create your own ssh-keygen
+2. copy the public key and send it to the desired server using
+`ssh-copy-id -i ~/.ssh/id_rsa.pub user@ipaddress`
