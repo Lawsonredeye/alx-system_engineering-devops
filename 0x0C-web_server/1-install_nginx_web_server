@@ -5,7 +5,7 @@ sudo apt-get install nginx -y
 # sudo ufw allow "Nginx HTTP"
 # let NGINX listen on port 80
 sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
-echo "Hello, World!" > file.txt
+echo "Hello World!" > file.txt
 sudo cp -r file.txt  /var/www/html/index.html
 rm file.txt
 sudo service nginx restart
