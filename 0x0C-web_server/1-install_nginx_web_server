@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# installs and sets NGINX to listen at port 80
-sudo apt-get update -y
 # Install engineX
 sudo apt-get install nginx -y
 # set NGINX to the port 80
