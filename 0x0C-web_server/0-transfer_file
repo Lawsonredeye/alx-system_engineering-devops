@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This copies my desired file into my webserver easily with CMD args
+path_to_file=$1
+user_ip=$2
+user_name=$3
+path_to_key=$4
+
+if [ -z "$user_name" ]
+then
+	# scp -i "$path_to_key" "$path_to_file" "$user_name"@"$user_ip":~/
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+elif [[ -n "$user_name" ]]
+then
+	scp -o StrictHostKeyChecking=no "$path_to_file" "$user_name"@"$user_ip":~/
+elif [[ -n "$3" ]]
+then
+	# echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+	scp -o StrictHostKeyChecking=no -i "$path_to_key" "$path_to_file" "$user_name"@"$user_ip":~/
+fi
