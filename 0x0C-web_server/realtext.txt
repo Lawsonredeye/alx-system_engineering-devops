@@ -1,6 +1,6 @@
 server_name test; return 301 http://example.com$request_uri;
 
-        location / {
+        location /error404.html {root /usr/share/nginx/html; internal;
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
                 try_files $uri $uri/ =404;

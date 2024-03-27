@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Install engineX
+sudo apt-get install nginx -y
+sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
+echo "Hello World!" > file.txt
+echo "Ceci n'est pas une page" > errorpage.txt
+# path to the index.html page
+sudo cp -r file.txt /var/www/html/index.html; rm file.txt
+# path to the custom 404 page
+sudo cp -r errorpage.txt /usr/share/nginx/html/error404.html; rm errorpage.txt
+sed -i "s#location / {#location /error404.html { root /usr/share/nginx/html; internal;#g" realtext.txt
+sudo service nginx restart
