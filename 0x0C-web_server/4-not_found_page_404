@@ -7,6 +7,7 @@ echo "Ceci n'est pas une page" > errorpage.txt
 # path to the index.html page
 sudo cp -r file.txt /var/www/html/index.html; rm file.txt
 # # path to the custom 404 page
-sudo cp -r errorpage.txt /usr/share/nginx/html/index.html; rm errorpage.txt
-sudo sed -i "s#location / {#/index.html; location index.html { root /usr/share/nginx/html; internal;#g" /etc/nginx/sites-enabled/default
+sudo cp -r errorpage.txt /usr/share/nginx/html/error404.html; rm errorpage.txt
+# sudo sed -i "s#location / {#/error404.html; location error404.html { root /usr/share/nginx/html; internal;#g" /etc/nginx/sites-enabled/default
+sudo sed -i 's#location / {#location / { error404.html; #g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
