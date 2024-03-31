@@ -9,5 +9,5 @@ sudo sed -i 's/listen 8080/listen 80' /etc/nginx/sites-enabled/default
 echo "Hello World!" > file.txt
 sudo cp -r file.txt  /var/www/html/index.html; rm file.txt
 # create a custom http header for web-01
-sudo sed -i 's/server { /server { add_header X-Served-By "516971-web-01";/' /etc/nginx/sites-enabled/default
+sudo sed -i '24 s/ /add_header X-Served-By "516971-web-01";/' /etc/nginx/sites-enabled/default
 sudo service nginx restart
