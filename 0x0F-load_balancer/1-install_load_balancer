@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# script to configure HAProxy for server
+
+# Install HAProxy
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.9
+sudo apt-get install haproxy=2.9.\*
