@@ -1,30 +1,31 @@
 #!/usr/bin/env bash
-# script to configure HAProxy for server
+# Script to configure HAProxy for server
 
 # Install HAProxy
 sudo apt update -y
-sudo apt-get install --no-install-recommends software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-2.9
-sudo apt-get install haproxy=2.9.\*
+sudo apt-get install --no-install-recommends software-properties-common -y
+sudo add-apt-repository ppa:vbernat/haproxy-2.9 -y
+sudo apt-get install haproxy=2.9.* -y
 
-#  make a backup
+# Make a backup of the configuration file
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy_default.backup
 
-# pass the frontend and backend settings to the /etc/haproxy .cfg file
-sudo echo "     
+# Configure HAProxy
+sudo tee /etc/haproxy/haproxy.cfg > /dev/null <<EOF
 frontend http_server
-        bind *:80
-        mode http
-        default_backend http_runner
+    bind *:80
+    mode http
+    default_backend http_runner
 
 backend http_runner
-        balance roundrobin
-        mode http
-        server 516971-web-01 52.86.247.182:80 check
-        server 516971-web-02 52.91.128.2:80 check
-" > /etc/haproxy/haproxy.cfg
+    balance roundrobin
+    mode http
+    server 516971-web-01 52.86.247.182:80 check
+    server 516971-web-02 52.91.128.2:80 check
+EOF
 
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+# Enable HAProxy
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy >/dev/null
 
-# start haproxy
+# Start HAProxy
 sudo service haproxy start
