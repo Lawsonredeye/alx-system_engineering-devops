@@ -30,7 +30,7 @@ backend http_runner
 EOF
 
 # Enable HAProxy
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy >/dev/null
+echo "ENABLED=1" | sudo dd status=none of=/etc/default/haproxy
 
 # Start HAProxy
 sudo service haproxy start
