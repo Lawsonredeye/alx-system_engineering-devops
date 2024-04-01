@@ -9,7 +9,7 @@ sudo apt update -y
 sudo apt install haproxy -y
 
 # Make a backup of the configuration file
-sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy_default.backup
+sudo cp /etc/haproxy/haproxy.cfg haproxy_default.backup
 
 # Configure HAProxy
 sudo tee /etc/haproxy/haproxy.cfg > /dev/null <<EOF
