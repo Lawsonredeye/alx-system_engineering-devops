@@ -19,6 +19,7 @@ frontend http_server
 
 backend http_runner
         balance roundrobin
+        mode http
         server 516971-web-01 52.86.247.182:80 check
         server 516971-web-02 52.91.128.2:80 check
 " > /etc/haproxy/haproxy.cfg
