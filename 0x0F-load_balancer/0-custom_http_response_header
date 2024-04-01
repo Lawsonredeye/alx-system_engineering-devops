@@ -11,4 +11,3 @@ sudo cp -r file.txt  /var/www/html/index.html; rm file.txt
 # create a custom http header for web-01
 sed -i 's/server {/ server { add_header X-Served-By "516971-web-02";/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
-
