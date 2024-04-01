@@ -3,6 +3,6 @@
 sudo apt-get install nginx -y
 sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
 echo "Hello World!" > file.txt; sudo cp -r file.txt /var/www/html/index.html; rm file.txt
-echo "Ceci n'est pas une page" > errorpage.txt; sudo cp -r errorpage.txt /usr/share/nginx/html/error404.html; rm errorpage.txt
-sudo sed -i 's#location / {#location / { error404.html; #g' /etc/nginx/sites-enabled/default
+echo "Ceci n'est pas une page" > errorpage.txt; sudo cp -r errorpage.txt /var/www/html/error404.html; rm errorpage.txt
+sudo sed -i 's#location / {#location /error404.html { error404.html; #g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
