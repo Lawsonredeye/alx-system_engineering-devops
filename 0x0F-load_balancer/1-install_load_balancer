@@ -18,5 +18,7 @@ backend http_runner
         server 516971-web-02 52.91.128.2:80 check
 " >> /etc/haproxy/haproxy.cfg
 
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
 # start haproxy
 sudo service haproxy restart
