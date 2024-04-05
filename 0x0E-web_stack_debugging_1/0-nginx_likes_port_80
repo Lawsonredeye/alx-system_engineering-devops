@@ -2,11 +2,5 @@
 # Using your debugging skills,
 
 sudo service nginx start
-#Check=$(which nginx)
-#if [ -z "$Check" ]
-#then
-#	sudo apt update -y
-#	sudo apt install nginx -y
-#fi
 sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
