@@ -6,14 +6,14 @@ domain=$1
 dig_func () {
         if [ -z "$2" ]
         then
-                record1=$(dig www."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
-                address1=$(dig www."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
-                record2=$(dig lb-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
-                address2=$(dig lb-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
-                record3=$(dig web-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
-                address3=$(dig web-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
-                record4=$(dig web-02."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
-                address4=$(dig web-02."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
+                record1=$(dig www."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $4}')
+                address1=$(dig www."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $5}')
+                record2=$(dig lb-01."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $4}')
+                address2=$(dig lb-01."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $5}')
+                record3=$(dig web-01."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $4}')
+                address3=$(dig web-01."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $5}')
+                record4=$(dig web-02."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $4}')
+                address4=$(dig web-02."$domain" | awk '/^;; ANSWER SECTION:/{getline; print $5}')
 
                 echo "The subdomain www is a $record1 record and points to $address1"
                 echo "The subdomain lb-01 is a $record2 record and points to $address2"
@@ -22,8 +22,8 @@ dig_func () {
                 
         elif [ -n "$2" ]
         then
-                record=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
-                address=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
+                record=$(dig "$2"."$1" | awk '/^;; ANSWER SECTION:/{getline; print $4}')
+                address=$(dig "$2"."$1" | awk '/^;; ANSWER SECTION:/{getline; print $5}')
                 echo "The subdomain $2 is a $record record and points to $address"
         fi
 }
