@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# - Script that prints the sub domain, record type as well as the ip address of a website in this format: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+
+domain=$1
+
+dig_func () {
+        if [ -z "$2" ]
+        then
+                record1=$(dig www."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
+                address1=$(dig www."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
+                record2=$(dig lb-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
+                address2=$(dig lb-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
+                record3=$(dig web-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
+                address3=$(dig web-01."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
+                record4=$(dig web-02."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
+                address4=$(dig web-02."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
+
+                echo "The subdomain www is a $record1 record and points to $address1"
+                echo "The subdomain lb-01 is a $record2 record and points to $address2"
+                echo "The subdomain web-01 is a $record3 record and points to $address3"
+                echo "The subdomain web-02 is a $record4 record and points to $address4"
+                
+        elif [ -n "$2" ]
+        then
+                record=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $4}')
+                address=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NF {print $5}')
+                echo "The subdomain $2 is a $record record and points to $address"
+        fi
+}
+dig_func $1 $2
