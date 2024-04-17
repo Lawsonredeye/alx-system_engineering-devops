@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# script that creates a tar.gz compression
+
+sudo mysql -uroot -p"$1" -e 'mysqldump --all-database > backup.sql'
+tar -czf "$(date '+%d-%m-%Y')".tar.gz backup.sql
