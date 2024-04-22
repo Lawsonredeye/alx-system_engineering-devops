@@ -17,7 +17,7 @@ if __name__ == "__main__":
     total = 0
     args = int(sys.argv[1])
     userUrl = requests.get("https://jsonplaceholder.typicode.com/users")
-    todoUrl = requests.get("https://jsonplaceholder.typicode.com/todo")
+    todoUrl = requests.get("https://jsonplaceholder.typicode.com/todos")
 
     userUrl.json()
     for user in userUrl.json():
@@ -25,7 +25,8 @@ if __name__ == "__main__":
             name = user["name"]
 
     for todo in todoUrl.json():
-        if todo["userId"] == args and todo["completed"] == True:
+        if todo["userId"] == args:
+            if todo["completed"] == True:
                 complete += 1
 
     for todo in todoUrl.json():
@@ -35,5 +36,6 @@ if __name__ == "__main__":
 
     print(f"Employee {name} is done with tasks({complete}/{total}):")
     for todo in todoUrl.json():
-        if todo["userId"] == args and todo["completed"] == True:
-                print(f"\t{todo['title']}")
+        if todo["userId"] == args:
+                if todo["completed"] == True:
+                    print(f"\t{todo['title']}")
