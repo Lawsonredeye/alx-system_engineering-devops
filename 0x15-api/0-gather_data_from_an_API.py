@@ -7,6 +7,7 @@ using either requests or urllib
 import requests
 import sys
 
+
 def main():
     """
     main function which is the first poioint of execution for running this
@@ -39,6 +40,7 @@ def main():
         if todo["userId"] == args:
             if todo["completed"] is True:
                 print(f"\t{todo['title']}")
+
 
 if __name__ == "__main__":
     main()
