@@ -26,16 +26,16 @@ if __name__ == "__main__":
 
     for todo in todoUrl.json():
         if todo["userId"] == args:
-            if todo["completed"] == True:
+            if todo["completed"] is True:
                 complete += 1
 
     for todo in todoUrl.json():
         if todo["userId"] == args:
-            if todo["completed"] == True or todo["completed"] == False:
+            if todo["completed"] is True or todo["completed"] is False:
                 total += 1
 
     print(f"Employee {name} is done with tasks({complete}/{total}):")
     for todo in todoUrl.json():
         if todo["userId"] == args:
-                if todo["completed"] == True:
-                    print(f"\t{todo['title']}")
+            if todo["completed"] is True:
+                print(f"\t{todo['title']}")
