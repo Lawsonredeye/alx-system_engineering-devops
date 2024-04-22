@@ -7,7 +7,7 @@ using either requests or urllib
 import requests
 import sys
 
-if __name__ == "__main__":
+def main():
     """
     main function which is the first poioint of execution for running this
     script to get the userName, ID, title
@@ -39,3 +39,6 @@ if __name__ == "__main__":
         if todo["userId"] == args:
             if todo["completed"] is True:
                 print(f"\t{todo['title']}")
+
+if __name__ == "__main__":
+    main()
