@@ -47,11 +47,10 @@ def main():
             mydict["username"] = username
             my_list.append(mydict)
     mydict[args] = my_list
-    print(mydict)
 
     filename = f"{args}.json"
     with open(filename, "w") as f:
-        json.dump(mydict, f)
+        json.dump(mydict, f, indent=4)
 
 
 if __name__ == "__main__":
