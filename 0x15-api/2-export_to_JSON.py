@@ -36,14 +36,14 @@ def main():
         if todo["userId"] == args:
             if todo["completed"] is True or todo["completed"] is False:
                 total += 1
-    
+
     mydict = {}
     for todo in todoUrl.json():
         if todo["userId"] == args:
             mydict["task"] = todo["title"]
             mydict["completed"] = todo["completed"]
             mydict["username"] = username
-    
+
     filename = f"{args}.json"
     with open(filename, "w") as f:
         json.dump(mydict, f)
