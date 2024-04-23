@@ -3,7 +3,9 @@
 Python script that uses a fake API data to extract data for use
 """
 
-import csv, requests, sys
+import csv
+import requests
+import sys
 
 
 def main():
