@@ -37,12 +37,17 @@ def main():
             if todo["completed"] is True or todo["completed"] is False:
                 total += 1
 
-    mydict = {}
-    for todo in todoUrl.json():
-        if todo["userId"] == args:
-            mydict["task"] = todo["title"]
-            mydict["completed"] = todo["completed"]
+    my_list = []
+    count = 0
+    for todos in todoUrl.json():
+        mydict = {}
+        if todos["userId"] == args:
+            mydict["task"] = todos["title"]
+            mydict["completed"] = todos["completed"]
             mydict["username"] = username
+            my_list.append(mydict)
+    mydict[args] = my_list
+    print(mydict)
 
     filename = f"{args}.json"
     with open(filename, "w") as f:
