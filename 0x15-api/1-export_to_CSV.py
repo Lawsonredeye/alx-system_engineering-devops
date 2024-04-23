@@ -24,16 +24,16 @@ def main():
     userUrl.json()
     for user in userUrl.json():
         if user["id"] == args:
-            name = user["name"]
-            username = user["username"]
+            name = user.get("name")
+            username = user.get("username")
 
     for todo in todoUrl.json():
-        if todo["userId"] == args:
-            if todo["completed"] is True:
+        if todo.get("userId") == args:
+            if todo.get("completed") is True:
                 complete += 1
 
     for todo in todoUrl.json():
-        if todo["userId"] == args:
+        if todo.get("userId") == args:
             if todo["completed"] is True or todo["completed"] is False:
                 total += 1
 
