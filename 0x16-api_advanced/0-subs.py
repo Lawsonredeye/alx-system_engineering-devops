@@ -6,6 +6,12 @@ using the requests library and the sys.args lib
 
 import requests
 
+headers = {"user-agent": (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36"
+)}
+
 
 def number_of_subscribers(subreddit):
     """
@@ -16,7 +22,7 @@ def number_of_subscribers(subreddit):
         param:str : name of subreddit
     """
     url = f"https://www.reddit.com/r/{subreddit}/about/.json"
-    r = requests.get(url)
+    r = requests.get(url, headers=headers)
     if r.status_code == 200:
         data = r.json()
         for key, value in data.items():
