@@ -30,5 +30,4 @@ def number_of_subscribers(subreddit):
                 for k, v in value.items():
                     if k == "subscribers":
                         return v
-    else:
-        return 0
+    return (0)
