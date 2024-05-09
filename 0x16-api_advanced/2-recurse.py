@@ -12,11 +12,12 @@ def recurse(subreddit, hot_list=[], after=None):
     use recursion to get the subreddits hot gist
     """
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    headers = {"user-agent": (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/124.0.0.0 Safari/537.36"
-    )}
+    headers = {"user-agent":
+               (
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/124.0.0.0 Safari/537.36"
+                )}
     params = {
         "limit": 50,
         "after": after
